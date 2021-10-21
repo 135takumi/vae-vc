@@ -4,7 +4,8 @@ import torch
 
 
 # data_root
-data_root = Path('/mnt/d/brood/M1/projects/vae-vc/sessions')
+# data_root = Path('/mnt/d/brood/M1/projects/vae-vc/sessions')
+data_root = Path('/home/isako/M1/projects/vae-vc/sessions')
 
 # exp_name
 exp_name = 'test'
@@ -18,7 +19,7 @@ speaker_num = 4
 # train config
 batch_size = 128
 lr = 1e-3
-epochs = 5
+epochs = 2000
 beta = 0.005
 
 # test config
@@ -26,10 +27,10 @@ valid_file_num = 32
 test_file_num = 20
 
 # save config
-save_interval = 2
+save_interval = 250
 
 # debug mode
-debug = True
+debug = False
 
 # cuda device
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
