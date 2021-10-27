@@ -4,11 +4,11 @@ import torch
 
 
 # data_root
-# data_root = Path('/mnt/d/brood/M1/projects/vae-vc/sessions')
+#data_root = Path('/mnt/d/brood/M1/projects/vae-vc/sessions')
 data_root = Path('/home/isako/M1/projects/vae-vc/sessions')
 
 # exp_name
-exp_name = 'test_nocbn'
+exp_name = 'test_nocbn2'
 
 # feature config
 sampling_rate = 24000
@@ -18,7 +18,7 @@ speaker_num = 4
 
 # train config
 batch_size = 128
-lr = 1e-3
+lr = 1e-4
 epochs = 6000
 beta = 0.005
 
