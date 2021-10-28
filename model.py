@@ -86,6 +86,7 @@ class DecoderBlock(nn.Module):
                               padding=padding,
                               bias=False)
         #self.cbn = ConditionalBatchNorm1d(out_channels, n_speaker)
+        self.bn = nn.BatchNorm1d(out_channels)
         self.relu = nn.ReLU()
 
     def forward(self, x, y):
@@ -97,6 +98,7 @@ class DecoderBlock(nn.Module):
         x = x + y.unsqueeze(-1).expand(x.size())
 
         x = self.conv(x)
+        x = self.bn(x)
         #x = self.cbn(x, y)
         x = self.relu(x)
 

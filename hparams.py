@@ -8,7 +8,7 @@ import torch
 data_root = Path('/home/isako/M1/projects/vae-vc/sessions')
 
 # exp_name
-exp_name = 'test_nocbn2'
+exp_name = 'test_nocbn3'
 
 # feature config
 sampling_rate = 24000
@@ -18,7 +18,7 @@ speaker_num = 4
 
 # train config
 batch_size = 128
-lr = 1e-4
+lr = 1e-3
 epochs = 6000
 beta = 0.005
 
