@@ -113,7 +113,7 @@ def main():
                 "std": np.array(v['std'])[None, :]
             }
 
-    test_files = files_to_list(hparams.data_root / "test_files.txt")
+    test_files = files_to_list(hparams.data_root / "train_files.txt")
 
     model = VAE(hparams.mcep_channels, hparams.speaker_num).to(device)
     model.load_state_dict(torch.load(hparams.data_root / "model_pth" / args.exp_name / args.weight,
