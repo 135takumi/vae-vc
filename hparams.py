@@ -8,7 +8,7 @@ import torch
 data_root = Path('/home/isako/M1/projects/vae-vc/sessions')
 
 # exp_name
-exp_name = 'test'
+exp_name = 'oft_check'
 
 # feature config
 sampling_rate = 24000
