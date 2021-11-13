@@ -135,9 +135,8 @@ def main():
     with open(hparams.data_root / "mcep_statistics.json", 'r') as f:
         mcep_dict = json.load(f)
 
-    all_files = files_to_list(hparams.data_root / "train_files.txt")
-    train_files = all_files[:-hparams.valid_file_num]
-    valid_files = all_files[-hparams.valid_file_num:]
+    train_files = files_to_list(hparams.data_root / "train_files.txt")
+    valid_files = files_to_list(hparams.data_root / "valid_files.txt")
 
     # Create data loaders
     train_data = AudioDataset(hparams.data_root,
