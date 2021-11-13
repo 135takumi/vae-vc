@@ -21,7 +21,7 @@ speaker_num = 4
 batch_size = 128
 lr = 1e-3
 epochs = 6000
-beta = 0.001
+beta = 0.005
 
 # test config
 valid_file_num = 32
