@@ -127,7 +127,7 @@ def main():
     model = VAE(hparams.mcep_channels, hparams.speaker_num).to(hparams.device)
 
     # optimizer
-    optimizer = torch.optim.Adam(model.parameters(), lr=hparams.lr, betas=(0.9, 0.9))
+    optimizer = torch.optim.RAdam(model.parameters(), lr=hparams.lr)
 
     with open(hparams.data_root / "speaker.json", 'r') as f:
         speaker_dict = json.load(f)

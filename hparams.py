@@ -6,9 +6,10 @@ import torch
 # data_root
 # data_root = Path('/mnt/d/brood/M1/projects/vae-vc/sessions')
 data_root = Path('/home/isako/M1/projects/vae-vc/sessions')
+# data_root = Path('/Users/takumiisako/M1/projects/vae-vc/sessions')
 
 # exp_name
-exp_name = 'oft_check'
+exp_name = 'radam_test'
 
 # feature config
 sampling_rate = 24000
@@ -20,7 +21,7 @@ speaker_num = 4
 batch_size = 128
 lr = 1e-3
 epochs = 6000
-beta = 0.005
+beta = 0.001
 
 # test config
 valid_file_num = 32
