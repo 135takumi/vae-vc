@@ -120,7 +120,9 @@ def main():
     random.shuffle(files)
     train_files = files[:-(hparams.valid_file_num +
                            hparams.test_file_num)]
-    valid_files = files[-hparams.valid_file_num:-hparams.test_file_num]
+    valid_files = files[-(hparams.valid_file_num +
+                          hparams.test_file_num):
+                        -hparams.test_file_num]
     test_files = files[-hparams.test_file_num:]
 
     with open(hparams.data_root / "f0_statistics.json", 'w') as f:
