@@ -82,7 +82,6 @@ class DecoderBlock(nn.Module):
                               padding=padding,
                               bias=False)
 
-        self.embedding = nn.Embedding(n_speaker, in_channels)
         self.bn = nn.BatchNorm1d(out_channels)
         self.relu = nn.ReLU()
 
@@ -90,9 +89,11 @@ class DecoderBlock(nn.Module):
         if self.is_up:
             x = self.up(x)
 
-        y = self.embedding(y)
-        x = x + y.unsqueeze(-1).expand(x.size())
+        y = torch.unsqueeze(y,-1)
+        y = torch.unsqueeze(y,-1)
+        y = y.expand(x.size(0), y.size(1), x.size(2))
 
+        x = torch.cat((x, y),1)
         x = self.conv(x)
         x = self.bn(x)
         x = self.relu(x)
@@ -106,11 +107,11 @@ class Decoder(nn.Module):
         super().__init__()
 
         self.blocks = nn.ModuleList([
-            DecoderBlock(256, 128, 3, 1, 1, n_speaker),
-            DecoderBlock(128, 64, 3, 1, 1, n_speaker, 2),
-            DecoderBlock(64, 32, 3, 1, 1, n_speaker, 2),
-            DecoderBlock(32, 32, 3, 1, 1, n_speaker, 2),
-            DecoderBlock(32, 32, 3, 1, 1, n_speaker, 2),
+            DecoderBlock(257, 128, 3, 1, 1, n_speaker),
+            DecoderBlock(129, 64, 3, 1, 1, n_speaker, 2),
+            DecoderBlock(65, 32, 3, 1, 1, n_speaker, 2),
+            DecoderBlock(33, 32, 3, 1, 1, n_speaker, 2),
+            DecoderBlock(33, 32, 3, 1, 1, n_speaker, 2),
         ])
 
         self.out_conv = nn.Conv1d(32, out_channels, 5, 1, 2)
